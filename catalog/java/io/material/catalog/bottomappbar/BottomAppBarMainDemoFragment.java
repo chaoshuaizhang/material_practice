@@ -18,6 +18,7 @@ package io.material.catalog.bottomappbar;
 
 import io.material.catalog.R;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,6 +35,7 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -51,6 +53,7 @@ public class BottomAppBarMainDemoFragment extends DemoFragment implements OnBack
   protected BottomAppBar bar;
   protected CoordinatorLayout coordinatorLayout;
   protected FloatingActionButton fab;
+  protected BottomNavigationView nav;
 
   @Nullable private ThemeSwitcherHelper themeSwitcherHelper;
   private BottomSheetBehavior<View> bottomDrawerBehavior;
@@ -94,23 +97,24 @@ public class BottomAppBarMainDemoFragment extends DemoFragment implements OnBack
 
     coordinatorLayout = view.findViewById(R.id.coordinator_layout);
     bar = view.findViewById(R.id.bar);
+    nav = view.findViewById(R.id.navigation_view);
     ((AppCompatActivity) getActivity()).setSupportActionBar(bar);
 
-    setUpBottomDrawer(view);
+//    setUpBottomDrawer(view);
 
-    fab = view.findViewById(R.id.fab);
-    fab.setOnClickListener(v -> showSnackbar(fab.getContentDescription()));
-    NavigationView navigationView = view.findViewById(R.id.navigation_view);
-    navigationView.setNavigationItemSelectedListener(
-        item -> {
-          showSnackbar(item.getTitle());
-          return false;
-        });
+//    fab = view.findViewById(R.id.fab);
+//    fab.setOnClickListener(v -> showSnackbar(fab.getContentDescription()));
+//    BottomNavigationView navigationView = view.findViewById(R.id.navigation_view);
+//    navigationView.setNavigationItemSelectedListener(
+//        item -> {
+//          showSnackbar(item.getTitle());
+//          return false;
+//        });
 
     Button centerButton = view.findViewById(R.id.center);
     Button endButton = view.findViewById(R.id.end);
     ToggleButton attachToggle = view.findViewById(R.id.attach_toggle);
-    attachToggle.setChecked(fab.getVisibility() == View.VISIBLE);
+//    attachToggle.setChecked(fab.getVisibility() == View.VISIBLE);
     centerButton.setOnClickListener(
         v -> {
           bar.setFabAlignmentModeAndReplaceMenu(
@@ -121,14 +125,14 @@ public class BottomAppBarMainDemoFragment extends DemoFragment implements OnBack
           bar.setFabAlignmentModeAndReplaceMenu(
               BottomAppBar.FAB_ALIGNMENT_MODE_END, R.menu.demo_primary_alternate);
         });
-    attachToggle.setOnCheckedChangeListener(
-        (buttonView, isChecked) -> {
-          if (isChecked) {
-            fab.show();
-          } else {
-            fab.hide();
-          }
-        });
+//    attachToggle.setOnCheckedChangeListener(
+//        (buttonView, isChecked) -> {
+//          if (isChecked) {
+//            fab.show();
+//          } else {
+//            fab.hide();
+//          }
+//        });
 
     ToggleButton barScrollToggle = view.findViewById(R.id.bar_scroll_toggle);
     barScrollToggle.setChecked(bar.getHideOnScroll());
@@ -143,7 +147,7 @@ public class BottomAppBarMainDemoFragment extends DemoFragment implements OnBack
                     ? BottomAppBar.FAB_ANIMATION_MODE_SLIDE
                     : BottomAppBar.FAB_ANIMATION_MODE_SCALE));
 
-    setUpBottomAppBarShapeAppearance();
+     setUpBottomAppBarShapeAppearance();
 
     return view;
   }
@@ -192,7 +196,7 @@ public class BottomAppBarMainDemoFragment extends DemoFragment implements OnBack
     bar.setNavigationOnClickListener(
         v -> bottomDrawerBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED));
     bar.setNavigationIcon(R.drawable.ic_drawer_menu_24px);
-    bar.replaceMenu(R.menu.demo_primary);
+//    bar.replaceMenu(R.menu.demo_primary);
   }
 
   private void showSnackbar(CharSequence text) {

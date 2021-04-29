@@ -19,6 +19,7 @@ package io.material.catalog.bottomsheet;
 import io.material.catalog.R;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -29,16 +30,21 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import io.material.catalog.feature.DemoFragment;
 
-/** A fragment that displays the main BottomSheet demo for the Catalog app. */
+/**
+ * A fragment that displays the main BottomSheet demo for the Catalog app.
+ */
 public class BottomSheetMainDemoFragment extends DemoFragment {
 
   @Override
@@ -62,9 +68,9 @@ public class BottomSheetMainDemoFragment extends DemoFragment {
           button0.setOnClickListener(
               v0 ->
                   Toast.makeText(
-                          v.getContext(),
-                          R.string.cat_bottomsheet_button_clicked,
-                          Toast.LENGTH_SHORT)
+                      v.getContext(),
+                      R.string.cat_bottomsheet_button_clicked,
+                      Toast.LENGTH_SHORT)
                       .show());
 
           SwitchMaterial enabledSwitch =
@@ -147,7 +153,7 @@ public class BottomSheetMainDemoFragment extends DemoFragment {
     button1.setOnClickListener(
         v ->
             Toast.makeText(
-                    v.getContext(), R.string.cat_bottomsheet_button_clicked, Toast.LENGTH_SHORT)
+                v.getContext(), R.string.cat_bottomsheet_button_clicked, Toast.LENGTH_SHORT)
                 .show());
 
     SwitchMaterial enabledSwitch = view.findViewById(R.id.cat_bottomsheet_enabled_switch);
@@ -161,7 +167,6 @@ public class BottomSheetMainDemoFragment extends DemoFragment {
           button1.setText(updatedText);
           button1.setEnabled(isChecked);
         });
-
     return view;
   }
 
@@ -216,7 +221,8 @@ public class BottomSheetMainDemoFragment extends DemoFragment {
           }
 
           @Override
-          public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
+          public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+          }
         };
     return bottomSheetCallback;
   }

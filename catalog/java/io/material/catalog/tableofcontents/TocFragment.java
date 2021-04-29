@@ -18,9 +18,15 @@ package io.material.catalog.tableofcontents;
 
 import io.material.catalog.R;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.core.view.ViewCompat;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +37,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -40,6 +47,7 @@ import dagger.android.support.DaggerFragment;
 import io.material.catalog.feature.ContainerTransformConfiguration;
 import io.material.catalog.feature.FeatureDemo;
 import io.material.catalog.feature.FeatureDemoUtils;
+import io.material.catalog.main.MainActivity;
 import io.material.catalog.themeswitcher.ThemePreferencesManager;
 import io.material.catalog.themeswitcher.ThemeSwitcherResourceProvider;
 import io.material.catalog.windowpreferences.WindowPreferencesManager;
@@ -68,6 +76,7 @@ public class TocFragment extends DaggerFragment {
   private RecyclerView recyclerView;
   private ImageButton themeButton;
   private ImageButton edgeToEdgeButton;
+  private SwitchCompat switchCompat;
 
   @Override
   public void onCreate(@Nullable Bundle bundle) {
@@ -110,6 +119,19 @@ public class TocFragment extends DaggerFragment {
     recyclerView = view.findViewById(R.id.cat_toc_grid);
     themeButton = view.findViewById(R.id.cat_toc_theme_button);
     edgeToEdgeButton = view.findViewById(R.id.cat_edge_to_edge_button);
+    switchCompat = view.findViewById(R.id.switch_btn);
+    SharedPreferences sp = activity.getSharedPreferences("TEST_TAG", Context.MODE_PRIVATE);
+    boolean is_checked = sp.getBoolean("is_checked", false);
+    switchCompat.setChecked(is_checked);
+    switchCompat.setOnCheckedChangeListener((v, isChecked)->{
+      SharedPreferences sp1 = activity.getSharedPreferences("TEST_TAG", Context.MODE_PRIVATE);
+      sp1.edit().putBoolean("is_checked", is_checked).commit();
+      if(isChecked){
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+      }else{
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+      }
+    });
 
     ViewCompat.setOnApplyWindowInsetsListener(
         view,

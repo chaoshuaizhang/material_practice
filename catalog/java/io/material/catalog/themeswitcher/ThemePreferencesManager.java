@@ -17,24 +17,33 @@
 package io.material.catalog.themeswitcher;
 
 import io.material.catalog.R;
+import io.material.catalog.main.MainActivity;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.PopupMenu;
+
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.SparseIntArray;
 import android.view.MenuItem;
 import android.view.View;
+
 import androidx.annotation.IdRes;
+
 import com.google.android.material.color.MaterialColors;
 
-/** Helper that saves the current theme choice for the Catalog, which maps to a night mode. */
+/**
+ * Helper that saves the current theme choice for the Catalog, which maps to a night mode.
+ */
 public class ThemePreferencesManager {
 
   private static final String PREFERENCES_NAME = "night_mode_preferences";

@@ -21,12 +21,19 @@
     android:theme="@style/ThemeOverlay.Catalog.AppBarLayout">
 
   <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/switch_btn"
+      android:layout_width="200dp"
+      android:layout_height="50dp"/>
+    <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      android:gravity="center"
       android:orientation="horizontal">
-    <ImageView
+      <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
@@ -34,12 +41,13 @@
         android:contentDescription="@null"
         android:importantForAccessibility="no"
         app:srcCompat="@drawable/ic_logo_components_48px"/>
-    <TextView
+      <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
         android:text="@string/cat_toc_title"
         android:textAppearance="?attr/textAppearanceHeadline6"/>
+    </LinearLayout>
   </LinearLayout>
 
   <ImageButton

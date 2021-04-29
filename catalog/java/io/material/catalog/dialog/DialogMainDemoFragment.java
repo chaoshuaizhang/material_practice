@@ -42,7 +42,7 @@ public class DialogMainDemoFragment extends DemoFragment {
       LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
     View view = layoutInflater.inflate(R.layout.dialog_main_demo, viewGroup, false);
     LinearLayout dialogLaunchersLayout = view.findViewById(R.id.dialog_launcher_buttons_layout);
-    CharSequence[] choices = {"Choice1", "Choice2", "Choice3"};
+    CharSequence[] choices = {"Choice1", "Choice2", "Choice3", "Choice2", "Choice3", "Choice2", "Choice3", "Choice2", "Choice3", "Choice2", "Choice3"};
     boolean[] choicesInitial = {false, true, false};
     StringBuilder multiLineMessage = new StringBuilder();
     String line = getResources().getString(R.string.line);

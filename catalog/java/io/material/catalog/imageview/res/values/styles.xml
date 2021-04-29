@@ -27,10 +27,9 @@
 
   <style name="ShapeAppearanceImageRight" parent="">
     <item name="cornerFamily">rounded</item>
-    <item name="cornerSize">32dp</item>
-
-    <item name="cornerSizeTopLeft">0dp</item>
-    <item name="cornerSizeBottomLeft">0dp</item>
+    <item name="cornerSize">50%</item>
+<!--    <item name="cornerSizeTopLeft">0dp</item>-->
+<!--    <item name="cornerSizeBottomLeft">0dp</item>-->
   </style>
 
 </resources>

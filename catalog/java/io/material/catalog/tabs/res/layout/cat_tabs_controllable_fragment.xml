@@ -109,11 +109,11 @@
         </RadioGroup>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:labelFor="@+id/toggle_inline_switch"
-            android:text="@string/cat_tabs_inline_switch_label"/>
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="end"
+          android:labelFor="@+id/toggle_inline_switch"
+          android:text="@string/cat_tabs_inline_switch_label" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@id/toggle_inline_switch"

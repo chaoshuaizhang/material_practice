@@ -79,7 +79,7 @@ public class MainActivity extends DaggerAppCompatActivity implements ThemeSwitch
     if (currentFragment != null && currentFragment.onOptionsItemSelected(item)) {
       return true;
     }
-
+    // 点击子页面左上角的箭头
     if (item.getItemId() == android.R.id.home) {
       onBackPressed();
       return true;

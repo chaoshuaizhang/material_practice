@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   Copyright 2018 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,46 +14,45 @@
   limitations under the License.
   -->
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/coordinator_layout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true">
 
-  <include layout="@layout/cat_bottomappbar_content"/>
+  <include layout="@layout/cat_bottomappbar_content" />
 
   <com.google.android.material.bottomappbar.BottomAppBar
-      android:id="@+id/bar"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_gravity="bottom"
-      app:navigationIcon="@drawable/ic_drawer_menu_24px"
-      app:navigationContentDescription="@string/cat_bottomappbar_navigation_button_content_description"
-      android:fitsSystemWindows="true"/>
+    android:id="@+id/bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:fitsSystemWindows="true"
+    android:visibility="gone"
+    app:navigationContentDescription="@string/cat_bottomappbar_navigation_button_content_description" />
 
   <com.google.android.material.floatingactionbutton.FloatingActionButton
-      android:id="@+id/fab"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:contentDescription="@string/cat_bottomappbar_fab_button_content_description"
-      app:layout_anchor="@id/bar"
-      app:srcCompat="@drawable/ic_add_24px"/>
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_anchor="@id/navigation_view"
+    app:layout_anchorGravity="center_horizontal"
+    app:srcCompat="@drawable/ic_add_24px" />
 
   <FrameLayout
-      android:id="@+id/bottom_drawer"
+    android:id="@+id/bottom_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="16dp"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/navigation_view"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:elevation="16dp"
-      app:behavior_hideable="true"
-      app:layout_behavior="@string/bottom_sheet_behavior">
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/demo_primary"/>
+      app:menu="@menu/demo_primary" />
   </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

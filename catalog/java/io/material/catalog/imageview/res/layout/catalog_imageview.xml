@@ -64,10 +64,8 @@
     android:scaleType="fitXY"
     android:adjustViewBounds="true"
     app:strokeColor="?attr/colorSecondary"
-    app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+    app:shapeAppearance="@style/ShapeAppearanceImageRight"
     app:strokeWidth="1dp"
-    app:elevation="5dp"
-    android:padding="8dp"
     app:srcCompat="@drawable/dog_image" />
 
 
