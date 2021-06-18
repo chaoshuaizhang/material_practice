@@ -97,29 +97,33 @@ public class BottomSheetMainDemoFragment extends DemoFragment {
           BottomSheetBehavior<View> bottomSheetBehavior =
               BottomSheetBehavior.from(bottomSheetChildView);
           bottomSheetBehavior.setUpdateImportantForAccessibilityOnSiblings(isChecked);
-          View modalBottomSheetChildView = bottomSheetDialog.findViewById(R.id.bottom_drawer_2);
-          ViewGroup.LayoutParams layoutParams = modalBottomSheetChildView.getLayoutParams();
+          // 先忽略modalBottomSheetChildView,因为它是BottomSheetDialog那块儿的,与内嵌的relativelayout没
+          // 关系,这里相当于是设置全屏时,bottomsheetdialog和relativelayout都设置成全屏
+//          View modalBottomSheetChildView = bottomSheetDialog.findViewById(R.id.bottom_drawer_2);
+//          ViewGroup.LayoutParams layoutParams = modalBottomSheetChildView.getLayoutParams();
           BottomSheetBehavior<FrameLayout> modalBottomSheetBehavior =
               bottomSheetDialog.getBehavior();
           boolean fitToContents = true;
           float halfExpandedRatio = 0.5f;
           int windowHeight = getWindowHeight();
-          if (params != null && layoutParams != null) {
+          if (params != null) {
             if (isChecked) {
               params.height = windowHeight;
-              layoutParams.height = windowHeight;
+//              layoutParams.height = windowHeight;
               fitToContents = false;
               halfExpandedRatio = 0.7f;
             } else {
               params.height = getBottomSheetPersistentDefaultHeight();
-              layoutParams.height = getBottomSheetDialogDefaultHeight();
+//              layoutParams.height = getBottomSheetDialogDefaultHeight();
             }
             bottomSheetChildView.setLayoutParams(params);
-            modalBottomSheetChildView.setLayoutParams(layoutParams);
+//            modalBottomSheetChildView.setLayoutParams(layoutParams);
             bottomSheetBehavior.setFitToContents(fitToContents);
-            modalBottomSheetBehavior.setFitToContents(fitToContents);
+//            modalBottomSheetBehavior.setFitToContents(fitToContents);
             bottomSheetBehavior.setHalfExpandedRatio(halfExpandedRatio);
-            modalBottomSheetBehavior.setHalfExpandedRatio(halfExpandedRatio);
+            // 设置全部展开时,距离顶部的高度
+            bottomSheetBehavior.setExpandedOffset(300);
+//            modalBottomSheetBehavior.setHalfExpandedRatio(halfExpandedRatio);
           }
 
           expansionSwitch.setEnabled(!isChecked);

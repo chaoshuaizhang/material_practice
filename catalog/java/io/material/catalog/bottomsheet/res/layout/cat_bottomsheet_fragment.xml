@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/cat_bottomsheet_persistent"
+        android:text="内嵌的"
         android:textColor="?attr/colorOnSurface"
         android:textSize="18sp"/>
 

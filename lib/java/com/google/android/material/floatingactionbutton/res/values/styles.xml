@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -52,6 +51,26 @@
 
   <style name="ShapeAppearanceOverlay.MaterialComponents.FloatingActionButton" parent="">
     <item name="cornerSize">50%</item>
+  </style>
+
+  <style name="ShapeAppearanceOverlayExtended" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">0dp</item>
+<!--    <item name="cornerFamily">rounded</item>-->
+<!--    <item name="cornerSize">10dp</item>-->
+    <item name="android:width">170dp</item>
+    <item name="android:height">130dp</item>
+<!--    <dimen name="design_fab_elevation">6dp</dimen>-->
+<!--    <dimen name="design_fab_translation_z_pressed">6dp</dimen>-->
+<!--    <dimen name="design_fab_content_size">24dp</dimen>-->
+<!--    <dimen name="design_fab_size_normal">56dp</dimen>-->
+<!--    <dimen name="design_fab_size_mini">40dp</dimen>-->
+<!--    <dimen name="design_fab_border_width">0.5dp</dimen>-->
+<!--    <item name="paddingStart">20dp</item>-->
+<!--    <item name="paddingEnd">20dp</item>-->
+<!--    <item name="height">60dp</item>-->
+<!--    <item name="minHeight">60dp</item>-->
+<!--    <item name="minWidth">170dp</item>-->
   </style>
 
   <style name="Widget.MaterialComponents.ExtendedFloatingActionButton" parent="Widget.MaterialComponents.Button">
